@@ -7,17 +7,20 @@
   "author": "ndthanhdev <ndthanhdev@outlook.com>",
   "license": "MIT",
   "scripts": {
+    "_build:clean": "rimraf ./dist/",
     "_build:umd": "tsc -p ./etc/tsconfig.umd.json",
     "_build:esm": "tsc -p ./etc/tsconfig.esm.json",
-    "build": "run-p _build:umd _build:esm",
-    "test": "",
-    "ci": ""
+    "_build:ts": "run-p _build:umd _build:esm",
+    "build": "run-s _build:clean _build:ts",
+    "test": "yarn jest",
+    "ci": "run-p test build"
   },
   "devDependencies": {
     "@types/jest": "^26.0.14",
     "@yarnpkg/pnpify": "^2.2.1",
     "jest": "^26.4.2",
     "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
     "ts-jest": "^26.4.0",
     "typescript": "^4.0.3"
   }

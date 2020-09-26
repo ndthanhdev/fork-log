@@ -41,6 +41,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@yarnpkg/pnpify", "virtual:98f83c1e0b19c4012804b13d0c17c462d1ef4f960ae42b4ccd55633b0bc571b135f643a7947c64d92e65c98d03ebd8a54cc05878e49e1e935c345346b66710be#npm:2.2.1"],
             ["jest", "npm:26.4.2"],
             ["npm-run-all", "npm:4.1.5"],
+            ["rimraf", "npm:3.0.2"],
             ["ts-jest", "virtual:98f83c1e0b19c4012804b13d0c17c462d1ef4f960ae42b4ccd55633b0bc571b135f643a7947c64d92e65c98d03ebd8a54cc05878e49e1e935c345346b66710be#npm:26.4.0"],
             ["typescript", "patch:typescript@npm%3A4.0.3#builtin<compat/typescript>::version=4.0.3&hash=5b02a2"]
           ],
@@ -2719,6 +2720,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@yarnpkg/pnpify", "virtual:98f83c1e0b19c4012804b13d0c17c462d1ef4f960ae42b4ccd55633b0bc571b135f643a7947c64d92e65c98d03ebd8a54cc05878e49e1e935c345346b66710be#npm:2.2.1"],
             ["jest", "npm:26.4.2"],
             ["npm-run-all", "npm:4.1.5"],
+            ["rimraf", "npm:3.0.2"],
             ["ts-jest", "virtual:98f83c1e0b19c4012804b13d0c17c462d1ef4f960ae42b4ccd55633b0bc571b135f643a7947c64d92e65c98d03ebd8a54cc05878e49e1e935c345346b66710be#npm:26.4.0"],
             ["typescript", "patch:typescript@npm%3A4.0.3#builtin<compat/typescript>::version=4.0.3&hash=5b02a2"]
           ],
