@@ -29,13 +29,7 @@ jobs:
       - uses: actions/setup-node@v1
       - run: yarn install
       - run: yarn build
-      # GPR
-      - run: yarn config set npmPublishRegistry 'https://npm.pkg.github.com/'
-      - shell: pwsh
-        env:
-          GPR_TOKEN: ${{ secrets.GPR_TOKEN }}
-        run: yarn config set npmAuthToken "$env:GPR_TOKEN"
       - run: yarn version -i 0.0.0-${{ github.sha }}
-      - run: yarn set-pkg-name --name "@ndthanhdev/fork-log"
       - run: yarn npm publish
-      # NPM
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
