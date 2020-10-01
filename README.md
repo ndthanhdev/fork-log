@@ -1,6 +1,6 @@
 # fork-log
 
-![Push CI](https://github.com/ndthanhdev/fork-log/workflows/Push%20CI/badge.svg)
+![build](https://github.com/ndthanhdev/fork-log/workflows/build/badge.svg)
 
 ## Usage
 
