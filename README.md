@@ -4,6 +4,8 @@
 
 ## Usage
 
+**Log**
+
 ```javascript
 import { createForkLog } from "fork-log";
 
@@ -19,4 +21,23 @@ workerBLog("doing lots of uninteresting work");
 // worker:B doing lots of uninteresting work
 addFunLog("learn a joke");
 // worker:B:addFun learn a joke
+```
+
+**Console**
+
+```javascript
+import { createForkConsole } from "fork-log";
+
+const AppLog = createForkConsole("app", console);
+const HttpLog = AppLog.fork("http");
+const HttpsLog = AppLog.fork("https");
+
+AppLog.log("booting");
+// ℹ app booting
+AppLog.warn("http is not secure");
+// ⚠ app http is not secure
+HttpLog.error("you was hacked");
+// ❗ app:http you was hacked
+HttpsLog.log("poor http guy");
+// ℹ app:https poor http guy
 ```
