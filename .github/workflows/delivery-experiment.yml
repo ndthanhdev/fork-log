@@ -1,7 +1,10 @@
-name: Release Experimental
+name: Delivery experiment
 
 on:
   push:
+    branches:
+      - master
+  pull_request_target:
     branches:
       - master
 
@@ -13,7 +16,7 @@ jobs:
         node:
           - 12
           - x
-    name: CI Node ${{ matrix.node }}
+    name: CI node ${{ matrix.node }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -21,8 +24,13 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: yarn install
       - run: yarn ci
-  release-experimental:
-    name: Release Experimental
+      - uses: actions/upload-artifact@v2
+        with:
+          name: fork-log-n${{ matrix.node }}-${{ github.sha }}.tgz
+          path: package.tgz
+  delivery-experimental:
+    name: Delivery experimental
+    needs: ci
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -35,5 +43,6 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: yarn config set npmAuthToken "$env:NPM_TOKEN"
-      - run: yarn version -i 0.0.0-experimental-${{ github.sha }}
+      - run: >
+          yarn version -i 0.0.0-exp-${{ github.sha }}
       - run: yarn npm publish --tag experimental

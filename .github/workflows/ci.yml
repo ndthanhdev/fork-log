@@ -12,7 +12,7 @@ jobs:
         node:
           - 12
           - x
-    name: CI Node ${{ matrix.node }}
+    name: CI node ${{ matrix.node }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2-beta
@@ -24,6 +24,11 @@ jobs:
   pack:
     name: Pack
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node:
+          - 12
+          - x
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2-beta
@@ -33,5 +38,5 @@ jobs:
       - run: yarn build
       - uses: actions/upload-artifact@v2
         with:
-          name: package.tgz
+          name: fork-log-n${{ matrix.node }}-${{ github.sha }}.tgz
           path: package.tgz
