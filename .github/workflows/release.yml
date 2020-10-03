@@ -1,0 +1,30 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # yarn set version issue
+      - uses: actions/setup-node@v2-beta
+        with:
+          check-latest: true
+      - run: yarn install
+      - run: yarn build
+      - shell: pwsh
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: yarn config set npmAuthToken "$env:NPM_TOKEN"
+      - run: yarn version -i ${{ github.event.tag_name }}
+      # Release
+      - run: yarn npm publish --tag alpha
+        if: ${{ github.event.prerelease }}
+      - run: yarn npm publish
+        if: ${{ !github.event.prerelease }}
+      # End Release
