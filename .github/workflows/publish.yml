@@ -21,10 +21,10 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: yarn config set npmAuthToken "$env:NPM_TOKEN"
-      - run: yarn version -i ${{ github.event.tag_name }}
+      - run: yarn version -i ${{ github.event.release.tag_name }}
       # Release
       - run: yarn npm publish --tag alpha
-        if: ${{ github.event.prerelease }}
+        if: ${{ github.event.release.prerelease }}
       - run: yarn npm publish
-        if: ${{ !github.event.prerelease }}
+        if: ${{ !github.event.release.prerelease }}
       # End Release
