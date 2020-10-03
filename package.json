@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "main": "dist/umd/index.js",
   "module": "dist/esm/index.esm",
-  "repository": "git@github.com:ndthanhdev/fork-log.git",
-  "author": "ndthanhdev <ndthanhdev@outlook.com>",
-  "license": "MIT",
   "scripts": {
     "_build:clean": "rimraf ./dist/",
     "_build:umd": "tsc -p ./etc/tsconfig.umd.json",
@@ -34,5 +31,13 @@
   },
   "files": [
     "dist/**/*"
+  ],
+  "repository": "git@github.com:ndthanhdev/fork-log.git",
+  "author": "ndthanhdev <ndthanhdev@outlook.com>",
+  "license": "MIT",
+  "keywords": [
+    "fork-log",
+    "log",
+    "structure"
   ]
 }
