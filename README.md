@@ -1,8 +1,11 @@
 # fork-log
 
 ![build](https://github.com/ndthanhdev/fork-log/workflows/build/badge.svg)
+[![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/)
 
-## Usage
+A tiny utility to structure log.
+
+# Examples
 
 **Log**
 
