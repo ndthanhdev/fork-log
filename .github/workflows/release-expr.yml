@@ -1,7 +1,9 @@
 name: Release Experimental
 
 on:
-  - pull_request
+  push:
+    branches:
+      - master
 
 jobs:
   ci:
@@ -19,7 +21,7 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: yarn install
       - run: yarn ci
-  release:
+  release-experimental:
     name: Release Experimental
     runs-on: ubuntu-latest
     steps:

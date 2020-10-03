@@ -8,7 +8,8 @@
     "_build:umd": "tsc -p ./etc/tsconfig.umd.json",
     "_build:esm": "tsc -p ./etc/tsconfig.esm.json",
     "_build:ts": "run-p _build:umd _build:esm",
-    "build": "run-s _build:clean _build:ts",
+    "_build:pack": "yarn pack",
+    "build": "run-s _build:clean _build:ts _build:pack",
     "test": "yarn jest",
     "ci": "run-p test build",
     "set-pkg-name": "ts-node ./etc/scripts/set-pkg-name.ts"
