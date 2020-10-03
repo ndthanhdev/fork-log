@@ -1,0 +1,43 @@
+{
+  "name": "fork-log",
+  "version": "1.0.0",
+  "main": "dist/umd/index.js",
+  "module": "dist/esm/index.esm",
+  "scripts": {
+    "_build:clean": "rimraf ./dist/",
+    "_build:umd": "tsc -p ./etc/tsconfig.umd.json",
+    "_build:esm": "tsc -p ./etc/tsconfig.esm.json",
+    "_build:ts": "run-p _build:umd _build:esm",
+    "build": "run-s _build:clean _build:ts",
+    "test": "yarn jest",
+    "ci": "run-p test build",
+    "set-pkg-name": "ts-node ./etc/scripts/set-pkg-name.ts"
+  },
+  "devDependencies": {
+    "@types/edit-json-file": "^1.4.0",
+    "@types/jest": "^26.0.14",
+    "@types/jsonfile": "^6.0.0",
+    "@types/node": "^14.11.2",
+    "@types/yargs": "^15.0.7",
+    "@yarnpkg/pnpify": "^2.2.1",
+    "jest": "^26.4.2",
+    "jsonfile": "^6.0.1",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^26.4.0",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.3",
+    "yargs": "^16.0.3"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "repository": "git@github.com:ndthanhdev/fork-log.git",
+  "author": "ndthanhdev <ndthanhdev@outlook.com>",
+  "license": "MIT",
+  "keywords": [
+    "fork-log",
+    "log",
+    "structure"
+  ]
+}
