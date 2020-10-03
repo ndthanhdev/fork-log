@@ -33,5 +33,5 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: yarn config set npmAuthToken "$env:NPM_TOKEN"
-      - run: yarn version -i 0.0.0-${{ github.sha }}
-      - run: yarn npm publish
+      - run: yarn version -i 0.0.0-experimental-${{ github.sha }}
+      - run: yarn npm publish --tag experimental
